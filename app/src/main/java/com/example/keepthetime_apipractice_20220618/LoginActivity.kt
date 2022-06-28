@@ -3,8 +3,10 @@ package com.example.keepthetime_apipractice_20220618
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.keepthetime_apipractice_20220618.databinding.ActivityLoginBinding
+import com.example.keepthetime_apipractice_20220618.datas.BasicResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,21 +26,25 @@ class LoginActivity : BaseActivity() {
             val inputEmail = binding.edtEmail.text.toString()
             val inputPw = binding.edtPassword.text.toString()
 
-            apiList.postRequestLogin(inputEmail, inputPw).enqueue(object: Callback<String> {
-                override fun onResponse(call: Call<String>, response: Response<String>) {
+            apiList.postRequestLogin(inputEmail, inputPw).enqueue(object: Callback<BasicResponse> {
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
                     if (response.isSuccessful) {
-                        val bodyStr = response.body()!!
-                        Log.d("성공 응답 본문", bodyStr)
+                        val br = response.body()!!
+
+                        Toast.makeText(mContext, "br.message", Toast.LENGTH_SHORT).show()
                     }
                     else {
-                        val bodyStr = response.errorBody()!!.string()
-                        Log.d("실패 응답 본문", bodyStr)
+                        
                     }
                 }
 
-                override fun onFailure(call: Call<String>, t: Throwable) {
-                    Log.d("실패 응답", "실패")
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                    
                 }
+
 
             })
         }

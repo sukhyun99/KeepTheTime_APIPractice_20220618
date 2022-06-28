@@ -1,5 +1,6 @@
 package com.example.keepthetime_apipractice_20220618.api
 
+import com.example.keepthetime_apipractice_20220618.datas.BasicResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -12,5 +13,5 @@ interface APIList {
     fun postRequestLogin(
         @Field("email") email: String,
         @Field("password") pw: String,
-    ): Call<String>
+    ): Call<BasicResponse>
 }
