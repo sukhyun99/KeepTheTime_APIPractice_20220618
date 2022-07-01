@@ -34,7 +34,7 @@ class LoginActivity : BaseActivity() {
                     if (response.isSuccessful) {
                         val br = response.body()!!
 
-                        Toast.makeText(mContext, "br.message", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(mContext, br.message, Toast.LENGTH_SHORT).show()
                     }
                     else {
                         
