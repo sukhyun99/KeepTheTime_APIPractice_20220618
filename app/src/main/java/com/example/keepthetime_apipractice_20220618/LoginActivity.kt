@@ -34,7 +34,8 @@ class LoginActivity : BaseActivity() {
                     if (response.isSuccessful) {
                         val br = response.body()!!
 
-                        Toast.makeText(mContext, br.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(mContext, "${br.data.user.nickname} 님 환영합니다.", Toast.LENGTH_SHORT).show()
+                        Log.d("토큰", br.data.token)
                     }
                     else {
                         
