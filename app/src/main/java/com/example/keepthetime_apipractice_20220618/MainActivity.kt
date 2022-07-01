@@ -18,9 +18,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        binding.btnToast.setOnClickListener {
-            Toast.makeText(mContext, "상속받은 변수 활용", Toast.LENGTH_SHORT).show()
-        }
+
     }
 
     override fun setValues() {

@@ -1,5 +1,6 @@
 package com.example.keepthetime_apipractice_20220618
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,6 +23,11 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+        binding.btnSignUp.setOnClickListener {
+            val myIntent = Intent(mContext, SignUpActivity::class.java)
+            startActivity(myIntent)
+        }
+
         binding.btnLogin.setOnClickListener {
             val inputEmail = binding.edtEmail.text.toString()
             val inputPw = binding.edtPassword.text.toString()
@@ -35,7 +41,11 @@ class LoginActivity : BaseActivity() {
                         val br = response.body()!!
 
                         Toast.makeText(mContext, "${br.data.user.nickname} 님 환영합니다.", Toast.LENGTH_SHORT).show()
-                        Log.d("토큰", br.data.token)
+
+                        val myIntent = Intent(mContext, MainActivity::class.java)
+                        startActivity(myIntent)
+
+                        finish()
                     }
                     else {
                         

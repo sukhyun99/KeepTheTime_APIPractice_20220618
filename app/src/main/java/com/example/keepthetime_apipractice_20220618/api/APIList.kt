@@ -1,10 +1,9 @@
 package com.example.keepthetime_apipractice_20220618.api
 
+import android.provider.ContactsContract
 import com.example.keepthetime_apipractice_20220618.datas.BasicResponse
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface APIList {
 
@@ -14,4 +13,23 @@ interface APIList {
         @Field("email") email: String,
         @Field("password") pw: String,
     ): Call<BasicResponse>
+
+    @FormUrlEncoded
+    @PUT("/user")
+    fun putRequestSignUp(
+        @Field("email") email: String,
+        @Field("password") pw: String,
+        @Field("nick_name") nickname: String,
+    ): Call<BasicResponse>
+
+    @GET("/user/check")
+    fun getRequestUserCheck(
+        @Query("type") type: String,
+        @Query("value") value: String,
+    ): Call<BasicResponse>
+
+    @GET("/user")
+    fun getRequestUserInfo(
+
+    )
 }
