@@ -10,18 +10,17 @@
         android:gravity="center"
         tools:context=".MainActivity">
 
-        <ImageView
-            android:id="@+id/imgLoginUserProfile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@mipmap/ic_launcher"/>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/mainViewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
-        <TextView
-            android:id="@+id/txtLoginUserNickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="로그인 한 사람의 닉네임"/>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/mainBottomNav"
+            app:menu="@menu/main_bottom_nav_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </layout>

@@ -32,4 +32,12 @@ interface APIList {
     fun getRequestUserInfo(
         @Header("X-Http-Token") token: String,
     ): Call<BasicResponse>
+
+    @FormUrlEncoded
+    @PATCH("/user/password")
+    fun patchRequestEditPassword(
+        @Header("X-Http-Token") token: String,
+        @Field("current_password") curPw: String,
+        @Field("new_password ") newPw: String,
+    ): Call<BasicResponse>
 }

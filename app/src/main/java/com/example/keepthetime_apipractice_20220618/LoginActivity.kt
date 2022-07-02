@@ -34,10 +34,7 @@ class LoginActivity : BaseActivity() {
             val inputPw = binding.edtPassword.text.toString()
 
             apiList.postRequestLogin(inputEmail, inputPw).enqueue(object: Callback<BasicResponse> {
-                override fun onResponse(
-                    call: Call<BasicResponse>,
-                    response: Response<BasicResponse>
-                ) {
+                override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                     if (response.isSuccessful) {
                         val br = response.body()!!
 
