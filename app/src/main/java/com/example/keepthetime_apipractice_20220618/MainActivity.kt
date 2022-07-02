@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.keepthetime_apipractice_20220618.databinding.ActivityMainBinding
+import com.example.keepthetime_apipractice_20220618.utils.ContextUtil
 
 class MainActivity : BaseActivity() {
     lateinit var binding: ActivityMainBinding
@@ -22,7 +23,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
-
+        Log.d("로그인 토크", ContextUtil.getLoginUserToken(mContext))
     }
 
 

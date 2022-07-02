@@ -30,6 +30,6 @@ interface APIList {
 
     @GET("/user")
     fun getRequestUserInfo(
-
-    )
+        @Header("X-Http-Token") token: String,
+    ): Call<BasicResponse>
 }

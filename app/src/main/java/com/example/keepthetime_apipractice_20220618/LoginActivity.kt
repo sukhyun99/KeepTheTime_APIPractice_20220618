@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.keepthetime_apipractice_20220618.databinding.ActivityLoginBinding
 import com.example.keepthetime_apipractice_20220618.datas.BasicResponse
+import com.example.keepthetime_apipractice_20220618.utils.ContextUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,6 +41,8 @@ class LoginActivity : BaseActivity() {
                     if (response.isSuccessful) {
                         val br = response.body()!!
 
+                        ContextUtil.setLoginUserToken(mContext, br.data.token)
+
                         Toast.makeText(mContext, "${br.data.user.nickname} 님 환영합니다.", Toast.LENGTH_SHORT).show()
 
                         val myIntent = Intent(mContext, MainActivity::class.java)
@@ -59,9 +62,13 @@ class LoginActivity : BaseActivity() {
 
             })
         }
+
+        binding.autoLoginCheckBox.setOnCheckedChangeListener { CompoundButton, isChecked ->
+            ContextUtil.setAutoLogin(mContext, isChecked)
+        }
     }
 
     override fun setValues() {
-
+        binding.autoLoginCheckBox.isChecked = ContextUtil.isAutoLogin(mContext)
     }
 }
