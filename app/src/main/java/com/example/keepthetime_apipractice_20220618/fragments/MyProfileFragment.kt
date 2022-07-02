@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.keepthetime_apipractice_20220618.EditPasswordActivity
+import com.example.keepthetime_apipractice_20220618.ManageFriendActivity
 import com.example.keepthetime_apipractice_20220618.R
 import com.example.keepthetime_apipractice_20220618.api.APIList
 import com.example.keepthetime_apipractice_20220618.databinding.FragmentMyProfileBinding
@@ -59,6 +60,11 @@ class MyProfileFragment: BaseFragment() {
 
         binding.btnEdtPassword.setOnClickListener {
             val myIntent = Intent(mContext, EditPasswordActivity::class.java)
+            startActivity(myIntent)
+        }
+
+        binding.btnManageFriend.setOnClickListener {
+            val myIntent = Intent(mContext, ManageFriendActivity::class.java)
             startActivity(myIntent)
         }
     }
