@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
-        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AddFriendActivity">
+        tools:context=".AddFriendRecyclerViewActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,21 +18,23 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:singleLine="true"
-                android:hint="검색할 닉네임을 2자 이상 입력해라."/>
+                android:hint="검색할 닉네임 입력"
+                android:singleLine="true"/>
 
             <Button
                 android:id="@+id/btnSearch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="검색"/>
+
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/searchedUserListView"
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/searchedUserRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 </layout>
-
